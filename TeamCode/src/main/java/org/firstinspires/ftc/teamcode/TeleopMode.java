@@ -1,33 +1,28 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 @TeleOp(name = "Teleop", group = "Teleop" )
-public class TeleopMode extends LinearOpMode
+public class TeleopMode extends OpMode
 {
     //Declare motors and stuff
 
     private DcMotor motorLeft;
     private DcMotor motorRight;
-
+    private DcMotor motorLinearLiftLeft;
+    private DcMotor motorLinearLiftRight;
     @Override
-    public void runOpMode() throws InterruptedException
-    {
-        motorLeft = hardwareMap.dcMotor.get("motorLeft");
-        motorRight = hardwareMap.dcMotor.get("motorRight");
-
-        motorLeft.setDirection(DcMotor.Direction.REVERSE);
-        waitForStart();
-
-        while(opModeIsActive())
-        {
-            motorLeft.setPower(-gamepad1.left_stick_y);
-            motorRight.setPower(-gamepad1.right_stick_y);
-            idle(); //gives software a chance to catch up?
-            telemetry.addData("Robot On", 1);
-            telemetry.update();
-        }
+    public void init(){
+        motorLeft = hardwareMap.get(DcMotor.class,"MotorLeft");
+        motorRight = hardwareMap.get(DcMotor.class,"MotorRight");
+        motorLinearLiftLeft = hardwareMap.get(DcMotor.class,"LinearLiftLeft");
+        motorLinearLiftRight = hardwareMap.get(DcMotor.class,"LinearLiftRight");
+    }
+    @Override
+    public void loop() {
+        motorLeft.setPower(gamepad1.left_stick_y);
+        motorRight.setPower(-gamepad1.right_stick_y);
     }
 }
