@@ -4,13 +4,15 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
-
+import com.qualcomm.robotcore.hardware.ColorSensor;
+import com.qualcomm.robotcore.hardware.Servo;
 @Autonomous(name ="Drive Foward", group = "Beginner Auton")
 public class AutonDriveFoward extends LinearOpMode {
     //Declare variables/ objects
     private DcMotor motorLeft;
     private DcMotor motorRight;
     private ElapsedTime runtime = new ElapsedTime();
+
 
 
     @Override
