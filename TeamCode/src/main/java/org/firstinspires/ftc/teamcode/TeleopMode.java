@@ -22,6 +22,7 @@ public class TeleopMode extends OpMode
         motorLinearLiftLeft = hardwareMap.get(DcMotor.class,"LinearLiftLeft");
         motorLinearLiftRight = hardwareMap.get(DcMotor.class,"LinearLiftRight");
         ArmServo = hardwareMap.get(Servo.class,"ArmServo");
+        BackServo = hardwareMap.get(Servo.class,"BackServo");
     }
     @Override
     public void loop() {
