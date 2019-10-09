@@ -24,10 +24,10 @@ public class AutonDriveFowardRightStart extends LinearOpMode {
         waitForStart();
         runtime.reset();
 
-        while (opModeIsActive() && runtime.seconds() < 3.0) {
+        while (opModeIsActive() && runtime.seconds() < 1.0) {
             driveForward(1.0);
         }
-        while (opModeIsActive() && runtime.seconds() > 3.0) {
+        while (opModeIsActive() && runtime.seconds() > 1.0) {
             driveForward(0.0);
         }
     }
