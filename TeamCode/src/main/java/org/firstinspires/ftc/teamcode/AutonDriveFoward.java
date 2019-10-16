@@ -14,11 +14,10 @@ public class AutonDriveFoward extends LinearOpMode {
     private ElapsedTime runtime = new ElapsedTime();
 
 
-
     @Override
     public void runOpMode() throws InterruptedException {
-        motorLeft = hardwareMap.dcMotor.get("motorLeft");
-        motorRight = hardwareMap.dcMotor.get("motorRight");
+        motorLeft = hardwareMap.dcMotor.get("MotorLeft");
+        motorRight = hardwareMap.dcMotor.get("MotorRight");
 
         motorLeft.setDirection(DcMotor.Direction.REVERSE);
         
@@ -32,9 +31,12 @@ public class AutonDriveFoward extends LinearOpMode {
             driveForward(0.0);
         }
     }
-        public void driveForward ( double power)
-        {
+        public void driveForward ( double power) {
             motorLeft.setPower(power);
-            motorRight.setPower(power);
+            if (power - .1 <= 0) {
+                motorRight.setPower(power - .1);
+            } else{
+                motorRight.setPower(.1);
+            }
         }
     }

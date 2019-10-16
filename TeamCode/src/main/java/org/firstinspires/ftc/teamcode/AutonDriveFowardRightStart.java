@@ -31,7 +31,7 @@ public class AutonDriveFowardRightStart extends OpMode {
         parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
         parameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
         parameters.loggingEnabled = false;
-        gyro = hardwareMap.get(BNO055IMU.class, "Gyro");
+        gyro = hardwareMap.get(BNO055IMU.class, "gyro");
         gyro.initialize(parameters);
         resetAngle();
 
@@ -68,6 +68,5 @@ public class AutonDriveFowardRightStart extends OpMode {
         arcadeDrive(1.0,turnPower);
 
     }
-
 
     }

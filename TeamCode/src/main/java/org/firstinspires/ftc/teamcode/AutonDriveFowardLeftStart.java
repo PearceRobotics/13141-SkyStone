@@ -16,8 +16,8 @@ public class AutonDriveFowardLeftStart extends LinearOpMode {
 
     @Override
     public void runOpMode() throws InterruptedException {
-        motorLeft = hardwareMap.dcMotor.get("MotorLeft");
-        motorRight = hardwareMap.dcMotor.get("MotorRight");
+        motorLeft = hardwareMap.dcMotor.get("motorLeft");
+        motorRight = hardwareMap.dcMotor.get("motorRight");
 
         motorLeft.setDirection(DcMotor.Direction.REVERSE);
         
