@@ -13,7 +13,6 @@ public class AutonDriveFoward extends LinearOpMode {
     private DcMotor motorRight;
     private ElapsedTime runtime = new ElapsedTime();
 
-
     @Override
     public void runOpMode() throws InterruptedException {
         motorLeft = hardwareMap.dcMotor.get("MotorLeft");
@@ -24,19 +23,23 @@ public class AutonDriveFoward extends LinearOpMode {
         waitForStart();
         runtime.reset();
 
-        while (opModeIsActive() && runtime.seconds() < 3.0) {
+        while (opModeIsActive() && runtime.seconds() < 1.0) {
             driveForward(1.0);
         }
-        while (opModeIsActive() && runtime.seconds() > 3.0) {
+        while (opModeIsActive() && runtime.seconds() > 1.0 && runtime.seconds() <   1.5) {
             driveForward(0.0);
+            motorRight.setPower(1);
+            motorLeft.setPower(-.9);
         }
+
     }
         public void driveForward ( double power) {
-            motorLeft.setPower(power);
+            motorRight.setPower(-power);
+
             if (power - .1 <= 0) {
-                motorRight.setPower(power - .1);
+                motorLeft.setPower(-.1);
             } else{
-                motorRight.setPower(.1);
-            }
+                motorLeft.setPower(-(power-.1));
+}
         }
     }
