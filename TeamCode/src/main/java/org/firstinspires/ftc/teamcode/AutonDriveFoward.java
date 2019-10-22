@@ -39,15 +39,16 @@ public class AutonDriveFoward extends LinearOpMode {
         { driveForward(1);
         }
         x = x + 2;
-        while( opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 1)
+        while( opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 5)
         {
-            driveForward(0);
+            motorLeft.setPower(0);
+            motorRight.setPower(0);
             ArmServo.setPosition(1);
         }
-        x = x + 1;
+        x = x + 5;
         while( opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 2){
-            motorLeft.setPower(-0.9);
-            motorRight.setPower(-1);
+            motorLeft.setPower(0.9);
+            motorRight.setPower(1);
         }
         x = x + 2;
         while ( opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 1){
