@@ -16,7 +16,7 @@ public class AutonDriveFoward extends LinearOpMode {
     private DcMotor motorLinearLiftRight;
 
     private ElapsedTime runtime = new ElapsedTime();
-    double x = 0.3;
+    double x = 0.8;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -31,32 +31,39 @@ public class AutonDriveFoward extends LinearOpMode {
         waitForStart();
         runtime.reset();
         while(opModeIsActive() && runtime.seconds() < x) {
-            motorLinearLiftLeft.setPower(1);
-            motorLinearLiftRight.setPower(-1);
+            ArmServo.setPosition(0);
+            motorLinearLiftLeft.setPower(-1);
+            motorLinearLiftRight.setPower(1);
         }
 
         while( opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 2)
         { driveForward(1);
-        }
+            motorLinearLiftLeft.setPower(0);
+            motorLinearLiftRight.setPower(0);
+    }
         x = x + 2;
-        while( opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 0.3)
+        while( opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 0.7)
         {
             motorLeft.setPower(0);
             motorRight.setPower(0);
+            motorLinearLiftLeft.setPower(1);
+            motorLinearLiftRight.setPower(-1);
+        }
+        x = x + .7;
+        while( opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 2){
+            motorLeft.setPower(0.85);
+            motorRight.setPower(1);
+            motorLinearLiftLeft.setPower(0);
+            motorLinearLiftRight.setPower(0);
+        }
+        x = x + 2;
+        while ( opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .3){
             motorLinearLiftLeft.setPower(-1);
             motorLinearLiftRight.setPower(1);
         }
         x = x + .3;
-        while( opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 2){
-            motorLeft.setPower(0.85);
-            motorRight.setPower(1);
-        }
-        x = x + 2;
-        while ( opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .3){
-            motorLinearLiftLeft.setPower(1);
-            motorLinearLiftRight.setPower(-1);
-        }
-        x = x + .3;
+        motorLinearLiftLeft.setPower(0);
+        motorLinearLiftRight.setPower(0);
     }
         public void driveForward ( double power) {
             motorRight.setPower(-power);
