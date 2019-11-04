@@ -22,48 +22,76 @@ public class AutonDriveFoward extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
         motorLeft = hardwareMap.dcMotor.get("MotorLeft");
         motorRight = hardwareMap.dcMotor.get("MotorRight");
-        ArmServo = hardwareMap.get(Servo.class,"ArmServo");
-        motorLinearLiftLeft = hardwareMap.get(DcMotor.class,"LinearLiftLeft");
-        motorLinearLiftRight = hardwareMap.get(DcMotor.class,"LinearLiftRight");
+        ArmServo = hardwareMap.get(Servo.class, "ArmServo");
+        motorLinearLiftLeft = hardwareMap.get(DcMotor.class, "LinearLiftLeft");
+        motorLinearLiftRight = hardwareMap.get(DcMotor.class, "LinearLiftRight");
 
         motorLeft.setDirection(DcMotor.Direction.REVERSE);
-        
+
         waitForStart();
         runtime.reset();
-        while(opModeIsActive() && runtime.seconds() < x) {
+        while (opModeIsActive() && runtime.seconds() < x) {
             ArmServo.setPosition(0);
-            motorLinearLiftLeft.setPower(-1);
-            motorLinearLiftRight.setPower(1);
         }
 
-        while( opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 2)
-        { driveForward(1);
-            motorLinearLiftLeft.setPower(0);
-            motorLinearLiftRight.setPower(0);
-    }
-        x = x + 2;
-        while( opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 0.7)
-        {
+        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 1) {
+            driveForward(1);
+        }
+        x = x + 1;
+        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 0.7) {
             motorLeft.setPower(0);
             motorRight.setPower(0);
-            motorLinearLiftLeft.setPower(1);
-            motorLinearLiftRight.setPower(-1);
+            ArmServo.setPosition(1);
         }
         x = x + .7;
-        while( opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 2){
+        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 1) {
             motorLeft.setPower(0.85);
             motorRight.setPower(1);
-            motorLinearLiftLeft.setPower(0);
-            motorLinearLiftRight.setPower(0);
         }
-        x = x + 2;
-        while ( opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .3){
-            motorLinearLiftLeft.setPower(-1);
-            motorLinearLiftRight.setPower(1);
+        x = x + 1;
+        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .3) {
+            ArmServo.setPosition(0);
+            motorRight.setPower(0);
+            motorLeft.setPower(0);
         }
         x = x + .3;
-        motorLinearLiftLeft.setPower(0);
-        motorLinearLiftRight.setPower(0);
+        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .4) {
+            motorLeft.setPower(-.85);
+            motorRight.setPower(1);
+        }
+        x = x + .4;
+        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 1.5) {
+            driveForward(1);
+        }
+        x = x + 1.5;
+        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .4) {
+            motorLeft.setPower(.85);
+            motorRight.setPower(-1);
+        }
+        x = x + .4;
+        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 1) {
+            driveForward(1);
+        }
+        x = x + 1;
+        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .4){
+            motorRight.setPower(-1);
+        motorLeft.setPower(.85);
+        }
+        x=x+.4;
+        while(opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .75){
+            driveForward(1);
+        }
+        x=x+.75;
+        while(opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .35)
+        {
+            motorLeft.setPower(.85);
+            motorRight.setPower(-1);
+        }
+        x=x+.4;
+        while(opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 1) {
+            driveForward(1);
+        }
+        x=x+1;
     }
         public void driveForward ( double power) {
             motorRight.setPower(-power);
