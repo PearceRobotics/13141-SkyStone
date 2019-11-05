@@ -44,11 +44,11 @@ public class AutonDriveFoward extends LinearOpMode {
             ArmServo.setPosition(1);
         }
         x = x + .7;
-        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 1) {
+        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .9) {
             motorLeft.setPower(0.85);
             motorRight.setPower(1);
         }
-        x = x + 1;
+        x = x + .9;
         while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .3) {
             ArmServo.setPosition(0);
             motorRight.setPower(0);
@@ -60,39 +60,52 @@ public class AutonDriveFoward extends LinearOpMode {
             motorRight.setPower(1);
         }
         x = x + .4;
-        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 1.5) {
+        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .75) {
             driveForward(1);
         }
-        x = x + 1.5;
+        x = x + .75;
         while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .4) {
             motorLeft.setPower(.85);
             motorRight.setPower(-1);
         }
         x = x + .4;
-        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 1) {
+        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 1.3) {
             driveForward(1);
         }
-        x = x + 1;
-        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .4){
+        x = x + 1.3;
+        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .4) {
             motorRight.setPower(-1);
-        motorLeft.setPower(.85);
+            motorLeft.setPower(.85);
         }
-        x=x+.4;
-        while(opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .75){
+        x = x + .4;
+        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .5) {
             driveForward(1);
         }
-        x=x+.75;
-        while(opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .35)
-        {
+        x = x + .5;
+        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .4) {
             motorLeft.setPower(.85);
             motorRight.setPower(-1);
         }
-        x=x+.4;
-        while(opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 1) {
+        x = x + .4;
+        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 1.3) {
             driveForward(1);
         }
-        x=x+1;
-    }
+        x = x + 1.3;
+        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .5) {
+            motorRight.setPower(1);
+            motorLeft.setPower(1);
+        }
+        x = x + .5;
+        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .3) {
+            motorLeft.setPower(.85);
+            motorRight.setPower(-1);
+        }
+        x=x+.3;
+        while(opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .8) {
+        driveForward(1);
+        }
+        x=x+.8;
+        }
         public void driveForward ( double power) {
             motorRight.setPower(-power);
 
