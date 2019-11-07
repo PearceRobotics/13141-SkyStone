@@ -55,7 +55,7 @@ public class AutonDriveRed extends LinearOpMode {
             motorLeft.setPower(0);
         }
         x = x + .3;
-        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .4) {
+        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .43) {
             motorLeft.setPower(.85);
             motorRight.setPower(-1);
         }
@@ -64,7 +64,7 @@ public class AutonDriveRed extends LinearOpMode {
             driveForward(1);
         }
         x = x + .75;
-        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .4) {
+        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .55) {
             motorLeft.setPower(-.85);
             motorRight.setPower(1);
         }
@@ -73,7 +73,7 @@ public class AutonDriveRed extends LinearOpMode {
             driveForward(1);
         }
         x = x + 1.3;
-        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .4) {
+        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .43) {
             motorRight.setPower(1);
             motorLeft.setPower(-.85);
         }
@@ -82,7 +82,7 @@ public class AutonDriveRed extends LinearOpMode {
             driveForward(1);
         }
         x = x + .5;
-        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .4) {
+        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .43) {
             motorLeft.setPower(-.85);
             motorRight.setPower(1);
         }
@@ -96,12 +96,12 @@ public class AutonDriveRed extends LinearOpMode {
             motorLeft.setPower(1);
         }
         x = x + .5;
-        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .3) {
+        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .5) {
             motorLeft.setPower(-.85);
             motorRight.setPower(1);
         }
         x=x+.3;
-        while(opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .8) {
+        while(opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 1) {
         driveForward(1);
         }
         x=x+.8;
