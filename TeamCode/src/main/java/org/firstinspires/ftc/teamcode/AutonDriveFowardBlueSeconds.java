@@ -6,8 +6,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous(name ="DriveFowardRed", group = "Beginner Auton")
-public class AutonDriveRed extends LinearOpMode {
+@Autonomous(name ="DriveFowardBlue2", group = "Beginner Auton")
+public class AutonDriveFowardBlueSeconds extends LinearOpMode {
     //Declare variables/ objects
     private DcMotor motorLeft;
     private DcMotor motorRight;
@@ -60,19 +60,19 @@ public class AutonDriveRed extends LinearOpMode {
             motorLeft.setPower(.3);
             motorRight.setPower(.3);
 
-        }
+            }
         x=x+.2;
-        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .4) {
-            motorLeft.setPower(.85);
-            motorRight.setPower(-1);
+            while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .4) {
+            motorLeft.setPower(-.85);
+            motorRight.setPower(1);
         }
         x = x + .4;        while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .5) {
             driveForward(1);
         }
         x = x + .5;
         while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .45) {
-            motorLeft.setPower(-.85);
-            motorRight.setPower(1);
+            motorLeft.setPower(.85);
+            motorRight.setPower(-1);
         }
         x = x + .4;
         while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 1.3) {
@@ -80,8 +80,8 @@ public class AutonDriveRed extends LinearOpMode {
         }
         x = x + 1.3;
         while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .4) {
-            motorRight.setPower(1);
-            motorLeft.setPower(-.85);
+            motorRight.setPower(-1);
+            motorLeft.setPower(.85);
         }
         x = x + .4;
         while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .5) {
@@ -89,8 +89,8 @@ public class AutonDriveRed extends LinearOpMode {
         }
         x = x + .5;
         while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .4) {
-            motorLeft.setPower(-.85);
-            motorRight.setPower(1);
+            motorLeft.setPower(.85);
+            motorRight.setPower(-1);
         }
         x = x + .4;
         while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 1.3) {
@@ -103,12 +103,12 @@ public class AutonDriveRed extends LinearOpMode {
         }
         x = x + .5;
         while (opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .3) {
-            motorLeft.setPower(-.85);
-            motorRight.setPower(1);
+            motorLeft.setPower(.85);
+            motorRight.setPower(-1);
         }
         x=x+.3;
         while(opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .8) {
-            driveForward(1);
+        driveForward(1);
         }
         x=x+.8;
 
