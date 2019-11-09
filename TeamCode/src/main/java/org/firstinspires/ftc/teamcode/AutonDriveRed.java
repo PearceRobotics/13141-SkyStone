@@ -16,7 +16,7 @@ public class AutonDriveRed extends LinearOpMode {
     private DcMotor motorLinearLiftRight;
 
     private ElapsedTime runtime = new ElapsedTime();
-    double x = 1;
+    double x = 5;
 
     @Override
     public void runOpMode() throws InterruptedException {

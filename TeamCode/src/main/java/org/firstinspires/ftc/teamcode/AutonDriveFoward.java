@@ -54,7 +54,7 @@ public class AutonDriveFoward extends LinearOpMode {
                 }
                 ResetEncode();*/
                 x = runtime.seconds();
-                while (x+8 > runtime.seconds()) {
+                while (x+8  > runtime.seconds()) {
                     motorLeft.setPower(.3);
                     motorRight.setPower(.15);
                 }//stop
