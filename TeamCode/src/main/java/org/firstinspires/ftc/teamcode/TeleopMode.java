@@ -14,7 +14,6 @@ public class TeleopMode extends OpMode
     private DcMotor motorLinearLiftLeft;
     private DcMotor motorLinearLiftRight;
     private Servo ArmServo;
-    private Servo BackServo;
     @Override
     public void init(){
         motorLeft = hardwareMap.get(DcMotor.class,"MotorLeft");
@@ -22,7 +21,6 @@ public class TeleopMode extends OpMode
         motorLinearLiftLeft = hardwareMap.get(DcMotor.class,"LinearLiftLeft");
         motorLinearLiftRight = hardwareMap.get(DcMotor.class,"LinearLiftRight");
         ArmServo = hardwareMap.get(Servo.class,"ArmServo");
-        BackServo = hardwareMap.get(Servo.class,"BackServo");
     }
     @Override
     public void loop() {
@@ -46,14 +44,6 @@ public class TeleopMode extends OpMode
         }
         else if(gamepad1.y){
             ArmServo.setPosition(0);
-            telemetry.addData("working", 1);
-        }
-        if(gamepad1.a) {
-            BackServo.setPosition(1);
-            telemetry.addData("working", 1);
-        }
-        else if(gamepad1. b){
-            BackServo.setPosition(0);
             telemetry.addData("working", 1);
         }
     }

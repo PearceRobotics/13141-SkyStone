@@ -16,7 +16,7 @@ public class AutonDriveFoward extends LinearOpMode {
     private DcMotor motorLinearLiftRight;
 
     private ElapsedTime runtime = new ElapsedTime();
-    double x = 0.8;
+    double x = 5;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -30,7 +30,59 @@ public class AutonDriveFoward extends LinearOpMode {
 
         waitForStart();
         runtime.reset();
-        while (opModeIsActive() && runtime.seconds() < x) {
+        ResetEncode();
+
+
+                while (motorLeft.getCurrentPosition() > -1650) {
+                    telemetry.addData("MotorLeftPos", motorLeft.getCurrentPosition());
+                    telemetry.addData("MotorRightPos", motorRight.getCurrentPosition());
+                    telemetry.update();
+                    double error = motorLeft.getCurrentPosition() - motorRight.getCurrentPosition();
+                    double modifier = error * .2;
+                    ArcadeDrive(.5,modifier);
+                }
+
+                ArcadeDrive(0, 0);
+                ArmServo.setPosition(1);
+                sleep(2500);
+                ResetEncode();
+                //go backwards
+                /*while (motorLeft.getCurrentPosition() < 1500) {
+                    double error = motorLeft.getCurrentPosition() - motorRight.getCurrentPosition();
+                    double modifier = error * .2;
+                    ArcadeDrive(-.01,modifier);
+                }
+                ResetEncode();*/
+                x = runtime.seconds();
+                while (x+8 > runtime.seconds()) {
+                    motorLeft.setPower(.3);
+                    motorRight.setPower(.15);
+                }//stop
+                ArcadeDrive(0, 0);
+                sleep(500);
+                //arm up
+                ArmServo.setPosition(0);
+                sleep(1000);
+                ResetEncode();
+
+
+                /*while(motorLeft.getCurrentPosition()<250) {
+                    double error = motorLeft.getCurrentPosition() - motorRight.getCurrentPosition();
+                    double modifier = error * .2;
+                    ArcadeDrive(-1, modifier);
+                }*/
+                //ResetEncode();
+                //turn
+               /* motorLeft.setTargetPosition(-1500);
+                motorRight.setTargetPosition(1500);
+                motorRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                motorLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                while(motorLeft.isBusy())
+                {
+                //do nothing
+                }
+*/
+       /* while (opModeIsActive() && runtime.seconds() < x) {
             ArmServo.setPosition(0);
         }
 
@@ -105,6 +157,7 @@ public class AutonDriveFoward extends LinearOpMode {
         driveForward(1);
         }
         x=x+.8;
+        */
         }
         public void driveForward ( double power) {
             motorRight.setPower(-power);
@@ -114,5 +167,18 @@ public class AutonDriveFoward extends LinearOpMode {
             } else{
                 motorLeft.setPower(-(power-.15));
 }
+        }
+        public void ArcadeDrive (double forward,double turnMod){
+        motorLeft.setPower(-(forward - turnMod));
+        motorRight.setPower(forward + turnMod);
+        telemetry.addData("Forward",forward);
+        telemetry.addData("TurnMod",turnMod);
+        telemetry.update();
+        }
+        public void ResetEncode(){
+            motorLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            motorRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            motorLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            motorRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         }
     }
