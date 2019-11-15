@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous(name ="DriveFowardBlue2", group = "Beginner Auton")
+@Autonomous(name ="DriveFowardBlueSec", group = "Beginner Auton")
 public class AutonDriveFowardBlueSeconds extends LinearOpMode {
     //Declare variables/ objects
     private DcMotor motorLeft;
