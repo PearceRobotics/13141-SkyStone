@@ -69,7 +69,7 @@ public class AutonDriveFowardBlueMechiums extends LinearOpMode {
         while(opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 1){
             stops();
         }
-        while(opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 5){
+        while(opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 15){
             StrafeLeft();
         }
         stops();
