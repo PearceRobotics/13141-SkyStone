@@ -26,8 +26,8 @@ public class TeleopModeMechiums extends OpMode
         MotorRightFront = hardwareMap.get(DcMotor.class,"MotorRightFront");
         MotorLeftBack = hardwareMap.get(DcMotor.class, "MotorLeftBack");
         MotorRightBack = hardwareMap.get(DcMotor.class, "MotorRightBack");
-        //motorLinearLiftLeft = hardwareMap.get(DcMotor.class,"LinearLiftLeft");
-        //motorLinearLiftRight = hardwareMap.get(DcMotor.class,"LinearLiftRight");
+        motorLinearLiftLeft = hardwareMap.get(DcMotor.class,"LinearLiftLeft");
+        motorLinearLiftRight = hardwareMap.get(DcMotor.class,"LinearLiftRight");
         ArmServo = hardwareMap.get(Servo.class,"ArmServo");
        ServoBack1 = hardwareMap.get(Servo.class,"ServoBack1");
        ServoBack2 = hardwareMap.get(Servo.class,"ServoBack2");
@@ -46,8 +46,8 @@ public class TeleopModeMechiums extends OpMode
         MotorRightFront.setPower(gamepad1.right_stick_x);
 
         if(gamepad1.left_bumper) {
-           // motorLinearLiftLeft.setPower(1);
-            //motorLinearLiftRight.setPower(-1);
+            motorLinearLiftLeft.setPower(1);
+            motorLinearLiftRight.setPower(-1);
         }
         else if(gamepad1.right_bumper) {
             //motorLinearLiftLeft.setPower(-1);
