@@ -6,8 +6,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous(name ="DriveFowardBlue2", group = "Beginner Auton")
-public class AutonDriveFowardBlueMechiums extends LinearOpMode {
+@Autonomous(name ="DriveFowardRed", group = "Beginner Auton")
+public class AutonDriveFowardRedMechiums extends LinearOpMode {
     //Declare variables/ objects
     private DcMotor MotorLeftFront;
     private DcMotor MotorRightFront;
@@ -40,10 +40,13 @@ public class AutonDriveFowardBlueMechiums extends LinearOpMode {
         waitForStart();
         runtime.reset();
         while(opModeIsActive() && runtime.seconds() < x) {
-            StrafeRight();
+            StrafeLeft();
         }
         while(opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 4.3){
-            Backward();
+            MotorRightBack.setPower(.30);
+            MotorLeftBack.setPower(-.45);
+            MotorLeftFront.setPower(-.45);
+            MotorRightFront.setPower(.30);
         }
         x=x+3;
         while(opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 4){
@@ -70,10 +73,10 @@ public class AutonDriveFowardBlueMechiums extends LinearOpMode {
             stops();
         }
         while(opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 3){
-            MotorRightBack.setPower(1);
-            MotorLeftBack.setPower(.8);
-            MotorLeftFront.setPower(-.8);
-            MotorRightFront.setPower(-1);        }
+            MotorRightBack.setPower(-1);
+            MotorLeftBack.setPower(-.8);
+            MotorLeftFront.setPower(.8);
+            MotorRightFront.setPower(1);        }
         stops();
 
 
@@ -113,4 +116,5 @@ public class AutonDriveFowardBlueMechiums extends LinearOpMode {
         MotorRightFront.setPower(0);
     }
 }
+
 
