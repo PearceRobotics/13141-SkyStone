@@ -44,18 +44,18 @@ public class AutonDriveFowardRedMechiums extends LinearOpMode {
         }
         while(opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 4.3){
             MotorRightBack.setPower(.30);
-            MotorLeftBack.setPower(-.45);
-            MotorLeftFront.setPower(-.45);
+            MotorLeftBack.setPower(-.30);
+            MotorLeftFront.setPower(-.30);
             MotorRightFront.setPower(.30);
         }
-        x=x+3;
+        x=x+4.3;
         while(opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 4){
             ServoBack1.setPosition(1);
             ServoBack2.setPosition(0);
             stops();
         }
         x=x+4;
-        while(opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 5){
+        while(opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 2){
             Foward();
         }
         x=x+5;
@@ -65,10 +65,10 @@ public class AutonDriveFowardRedMechiums extends LinearOpMode {
             stops();
         }
         x=x+3.5;
-        while(opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 1){
-            Foward();
+        while(opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + .1){
+            Backward();
         }
-        x=x+1;
+        x=x+.1;
         while(opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 1){
             stops();
         }
@@ -98,10 +98,10 @@ public class AutonDriveFowardRedMechiums extends LinearOpMode {
     }
     public void Foward()
     {
-        MotorRightBack.setPower(-1);
-        MotorLeftBack.setPower(.8);
-        MotorLeftFront.setPower(.8);
-        MotorRightFront.setPower(-1);
+        MotorRightBack.setPower(-.9);
+        MotorLeftBack.setPower(1);
+        MotorLeftFront.setPower(1);
+        MotorRightFront.setPower(-.9);
     }
     public void Backward(){
         MotorRightBack.setPower(.30);
