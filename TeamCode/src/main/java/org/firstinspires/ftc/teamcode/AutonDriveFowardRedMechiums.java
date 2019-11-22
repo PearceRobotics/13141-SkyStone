@@ -58,7 +58,7 @@ public class AutonDriveFowardRedMechiums extends LinearOpMode {
         while(opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 2){
             Foward();
         }
-        x=x+5;
+        x=x+2;
         while(opModeIsActive() && runtime.seconds() > x && runtime.seconds() < x + 3.5){
             ServoBack1.setPosition(0);
             ServoBack2.setPosition(1);
